@@ -61,7 +61,7 @@ app.use(function(req, res, next) {
 
 // Landings
 app.get('/', routes.index.landing)
-// app.get('/thanks', routes.order.thanks)
+app.get('/login', routes.auth.login)
 // app.get('/support', routes.support.contact)
 // app.get('/test',routes.test.test)
 
