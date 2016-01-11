@@ -7,12 +7,10 @@ Parse.Cloud.useMasterKey()
 /*  **** FIX ROUTES ****  */
 
 // Routes
-//   var routes = {
-//     inventory: require("cloud/express/routes/inventory.js"),
-//     order: require("cloud/express/routes/order.js"),
-//     support: require("cloud/express/routes/support.js"),
-//     test: require("cloud/express/routes/test.js")
-//   }
+  var routes = {
+    index: require("cloud/express/routes/index.js"),
+    auth: require("cloud/express/routes/auth.js")
+  }
 
 // Global app configuration section
 app.set('views', 'cloud/express/views')
@@ -61,8 +59,8 @@ app.use(function(req, res, next) {
 
 /* **** FIX LANDINGS AND FUNCTION ROUTES **** */ 
 
-// // Landings
-// app.get('/', routes.order.tempo)
+// Landings
+app.get('/', routes.index.landing)
 // app.get('/thanks', routes.order.thanks)
 // app.get('/support', routes.support.contact)
 // app.get('/test',routes.test.test)
@@ -73,8 +71,8 @@ app.use(function(req, res, next) {
 // app.get('/inventory/request', routes.inventory.request)
 // app.get('/inventory/getTotal', routes.inventory.getTotal)
 
-// // Not Found Redirect
-// app.all("*", routes.order.notFound)
+// Not Found Redirect
+app.all("*", routes.index.notFound)
  
 // Listen to Parse
 app.listen()
