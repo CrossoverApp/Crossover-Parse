@@ -60,13 +60,15 @@ app.use(function(req, res, next) {
 /* **** FIX LANDINGS AND FUNCTION ROUTES **** */ 
 
 // Landings
-app.get('/', routes.index.landing)
+app.get('/', routes.auth.auth, routes.index.landing)
 app.get('/login', routes.auth.login)
-// app.get('/support', routes.support.contact)
-// app.get('/test',routes.test.test)
+app.get('/register', routes.auth.register)
+app.get('/logout', routes.auth.logout)
+// app.get('/landing',routes.index.landing)
 
 // // Order Handling
-// app.post('/order/new', routes.order.newOrder)
+app.post('/newuser', routes.auth.newUser)
+app.post('/user', routes.auth.user)
 // app.post('/inventory/update', routes.inventory.update)
 // app.get('/inventory/request', routes.inventory.request)
 // app.get('/inventory/getTotal', routes.inventory.getTotal)
