@@ -3,8 +3,11 @@
     "Crossover": {
       "applicationId": "81rQn2qcMurbS55nnoXi2CAffgbfLtqcawotG91l"
     },
+    "CrossoverDev": {
+      "applicationId": "PNH3PccfMRTmWXoQxIQ5ikeegABPaxGmUXugzlKw"
+    },
     "_default": {
-      "link": "Crossover"
+      "link": "CrossoverDev"
     }
   }
 }
