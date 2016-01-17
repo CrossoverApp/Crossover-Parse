@@ -25,7 +25,9 @@ $(document).ready( function() {
 				}, function(response) {
 
 					if(response.success) {
-						buttonText("Logging in...")
+						buttonText("Creating account...")
+						login(email, password)
+// 						window.location.replace("/")
 					} else {
 						buttonEnabled = true
 						buttonText("Registration failed")
@@ -49,6 +51,21 @@ $(document).ready( function() {
 	
 	function buttonText(text) {
 		$("#submitButton").text(text)
+	}
+	
+	function login(email, password) {
+		$.post("/user", {
+			email: email,
+			password: password
+		}, function(response) {
+			if(response.success) {
+				buttonText("Logging in...")
+				window.location.href = "/"
+			} else {
+				buttonText("Error logging in")
+				window.location.href = "/login"
+			}
+		})
 	}
   
 })
