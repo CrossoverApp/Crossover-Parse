@@ -10,9 +10,7 @@ $(document).ready( function() {
       var email = $("#inputEmail").val()
       var password = $("#inputPassword").val()
 			var button = $("#submitButton")
-			
-			console.log(email)
-			
+						
       buttonEnabled = false;
       buttonText("Sending...")
 			
@@ -27,7 +25,8 @@ $(document).ready( function() {
         console.log(response.success)
 
         if(response.success) {
-          buttonText("Logging in...")
+          buttonText("Logging in...")      
+          window.location.replace("/")
         } else {
           buttonEnabled = true
           buttonText("Login failed")

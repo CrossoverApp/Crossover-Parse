@@ -9,7 +9,7 @@ Parse.Cloud.useMasterKey()
 // Routes
   var routes = {
     index: require("cloud/express/routes/index.js"),
-    auth: require("cloud/express/routes/auth.js")
+    accounts: require("cloud/express/routes/accounts.js")
   }
 
 // Global app configuration section
@@ -60,18 +60,24 @@ app.use(function(req, res, next) {
 /* **** FIX LANDINGS AND FUNCTION ROUTES **** */ 
 
 // Landings
-app.get('/', routes.auth.auth, routes.index.landing)
-app.get('/login', routes.auth.login)
-app.get('/register', routes.auth.register)
-app.get('/logout', routes.auth.logout)
-// app.get('/landing',routes.index.landing)
+app.get('/', routes.accounts.auth, routes.index.landing)
+app.get('/login', routes.accounts.login)
+app.get('/register', routes.accounts.register)
 
-// // Order Handling
-app.post('/newuser', routes.auth.newUser)
-app.post('/user', routes.auth.user)
-// app.post('/inventory/update', routes.inventory.update)
-// app.get('/inventory/request', routes.inventory.request)
-// app.get('/inventory/getTotal', routes.inventory.getTotal)
+// Non-landing GET requests
+app.get('/logout', routes.accounts.logout)
+// getting tabs
+// getting tab groups
+
+
+// Post Handling
+app.post('/newuser', routes.accounts.newUser)
+app.post('/user', routes.accounts.user)
+
+// creating tab groups
+// creating tabs
+
+
 
 // Not Found Redirect
 app.all("*", routes.index.notFound)
