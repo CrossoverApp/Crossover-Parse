@@ -147,7 +147,7 @@ a:focus {
     padding: 100px 0;
     text-align: center;
     color: #fff;
-    background: url(../img/intro-bg.jpg) no-repeat bottom center scroll;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAJCAYAAADtj3ZXAAABb0lEQVQoUy2RS24TURBFT9X7tT9JQMkAiSFbYAtBCEUgIYHYBbsgwDLYAUNWwZRBMjBiZBssY0e42/2qUDcs4Jx7b5VcvXjjJRXUA45zkSOPzyMXWjFt6IPQHTrabeVoGVRJbqAJef38lZc0wyzR9j3nJfDofuThTCk43aFls25JlonNjE4gqIILcv3yyh+EwlwiKpWqgaMYmgMmgd+7A22biCHSNDMIGdEICrJ7+8zL1AmNIMWwo1K3ie1P4WZlfG8Tu2h0OSF5zqScYAgSI+IfnriLYaPKwR21jPwB2wRW68DN1ri1wL6cUiZzJGfwgPTvnjrmiMjImggeKiqO1Ax3kf5XZLGsfL3LLKf3mExPqcceqQM8FjEYQGFMH0e5Iii1FeJmwnrZ8GXV801PWFIRe3/prgwEIzckDm8bQDdceiDiuzPC3lmvEp9unc8+NPt46aL+L/H/ZnHBbbjBYBvMEVOBjRP3Z/xYwPWi4y9zrK9JjXVMJwAAAABJRU5ErkJggg==") no-repeat bottom center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -265,7 +265,7 @@ a:focus {
     width: 100%;
     padding: 50px 0;
     color: #fff;
-    background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAJCAYAAADtj3ZXAAABpElEQVQoUx3Kz2oTQRzA8e9vZnZ2upttip49iKhQC168CT5Pj+oD+ACefYAi3kR8AD0pKqIH/xCFNA0Uok3SNH/d7G52MyN6+lw+8uFlL2wrD3XEZJZzetblavGF/e0ZabJBMyXygcgmIBoRjSegQkDePu8GtopiAb8HC07mfa7oT9wzE1InxJTE9ZqwbYiMQWmLVwJikHcvTkO52jL+tWQ4yekXHW7Yz9zNClrB0vKCNRW6XiPVGqMVJrIEEyGvjvphOcwZneecV3NGxRvu7Ay5lsGuaNp4jIKMGpVfEMqCKLLoyCDPHn0PZtkwZkOv+kpWveegHbgUCS1j2FM1DiHDozcLmtUK5x1aPPL0QSdsw4aBDFmUH7lOj7bZkLgdnE3IVCCjoYXH+ZywWBBXglKCHN3vhLEac5J/47L/wW2X0zQlcSslsQmJEhz8N1UVMp3gCo/WCnn88HUYVF2G82Nuuim3Utg0DdYq9hJH/C9JjNURaRyQ2RQzL3HaIIeHT8Loz0+kLthPPAe7DU0jKDxpbEjSFKMdxsRYq6lnM+RiTSKav6Z3vkCpoTDqAAAAAElFTkSuQmCC") no-repeat center center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;

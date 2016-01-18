@@ -9,7 +9,7 @@ Parse.Cloud.useMasterKey()
 // Routes
   var routes = {
     index: require("cloud/express/routes/index.js"),
-    auth: require("cloud/express/routes/auth.js")
+    accounts: require("cloud/express/routes/accounts.js")
   }
 
 // Global app configuration section
@@ -60,16 +60,24 @@ app.use(function(req, res, next) {
 /* **** FIX LANDINGS AND FUNCTION ROUTES **** */ 
 
 // Landings
-app.get('/', routes.index.landing)
-app.get('/login', routes.auth.login)
-// app.get('/support', routes.support.contact)
-// app.get('/test',routes.test.test)
+app.get('/', routes.accounts.auth, routes.index.landing)
+app.get('/login', routes.accounts.login)
+app.get('/register', routes.accounts.register)
 
-// // Order Handling
-// app.post('/order/new', routes.order.newOrder)
-// app.post('/inventory/update', routes.inventory.update)
-// app.get('/inventory/request', routes.inventory.request)
-// app.get('/inventory/getTotal', routes.inventory.getTotal)
+// Non-landing GET requests
+app.get('/logout', routes.accounts.logout)
+// getting tabs
+// getting tab groups
+
+
+// Post Handling
+app.post('/newuser', routes.accounts.newUser)
+app.post('/user', routes.accounts.user)
+
+// creating tab groups
+// creating tabs
+
+
 
 // Not Found Redirect
 app.all("*", routes.index.notFound)
