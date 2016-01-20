@@ -19,7 +19,7 @@ $(document).ready( function() {
 			
 			if(password == passwordConfirm) {
 			
-				$.post("/newuser", {
+				$.post("/newUser", {
 					email: email,
 					password: password
 				}, function(response) {
@@ -60,7 +60,7 @@ $(document).ready( function() {
 		}, function(response) {
 			if(response.success) {
 				buttonText("Logging in...")
-				window.location.href = "/"
+				window.location.href = "/tabs"
 			} else {
 				buttonText("Error logging in")
 				window.location.href = "/login"
