@@ -64,7 +64,7 @@ module.exports.logout = function(req, res) {
   console.log(1)
   Parse.User.logOut()
   req.session = null
-  res.redirect("/login")
+  res.redirect("/")
 }
 
 
