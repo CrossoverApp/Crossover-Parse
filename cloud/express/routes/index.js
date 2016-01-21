@@ -28,8 +28,8 @@ module.exports.tabs = function(req, res) {
       
     })
   }).then(function() {
-      res.renderT('tabs', {
-      template: 'tabs',
+      res.renderT('account', {
+      template: 'account',
       tabs: tabs
     })
   })

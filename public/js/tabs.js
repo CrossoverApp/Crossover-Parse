@@ -32,7 +32,6 @@ $(document).ready(function() {
   
   $("#save_rows").click(function() {    
     var newTabs = []
-    var oldTabs = []
     
     $("tr[name]").each(function() {
       

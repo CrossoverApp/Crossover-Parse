@@ -4,7 +4,6 @@ var User = Parse.User
 
 module.exports.newTabs = function(req, res) {
   var newTabs = []
-  var oldTabs = []
   var tabTitles = []
   var tabUrls = []
   
@@ -12,10 +11,7 @@ module.exports.newTabs = function(req, res) {
   user.id = req.session.user
   
   newTabs = req.param("newTabs")
-  oldTabs = req.param("oldTabs")
-  
-  console.log("$$$$$$$$$$$$$    OLD TABS:   "+oldTabs)
-    
+      
   if(newTabs) {
     if(newTabs) {
       newTabs.forEach(function(newTab) {
