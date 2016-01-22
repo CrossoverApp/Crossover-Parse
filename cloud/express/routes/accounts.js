@@ -19,9 +19,14 @@ module.exports.auth = function(req, res, next) {
 
 
 module.exports.login = function(req, res) {
-  res.renderT('login', {
-    template: 'login',
-  })
+	if(req.session.user) {
+		res.redirect('/tabs')
+	} else {
+		res.renderT('login', {
+    	template: 'login',
+  	})
+	}
+  
 }
 
 module.exports.register = function(req, res) {
