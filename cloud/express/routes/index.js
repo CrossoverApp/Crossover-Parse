@@ -2,7 +2,6 @@
 var Tab = Parse.Object.extend("Tab")
 var TabGroup = Parse.Object.extend("TabGroup")
 
-
 module.exports.landing = function(req, res) {
   res.renderT('landing', {
     template: 'landing',
@@ -10,54 +9,17 @@ module.exports.landing = function(req, res) {
 }
 
 module.exports.overview = function(req, res) {
+  console.log("OVERVIEW TAB GROUPS:  "+req.tabGroups)
   res.renderT('overview', {
     template: 'overview',
+    tabGroups: req.tabGroups
   })
 }
 
 module.exports.tabs = function(req, res) {
   var user = req.user
-  var tabs = []  
-   
-//   Parse.Promise.as().then(function() {
-//     var query = new Parse.Query(TabGroup)
-
-//     query.equalTo("user", user)
-
-//     return query.each(function(tabGroup) {
-//       var group = new TabGroup()
-//       group = tabGroup
-      
-//       var tabs = []
-//       tabs = group.get("tabs")
-//       if(tabs.length > 0) {
-//         tabs.forEach(function(tab){
-//           var tabToFetch = new Tab()
-//           tabToFetch.id = tab
-//           var tabQuery = new Parse.Query(Tab)
-//           tabQuery.get("")
-          
-//         })
-//       }
-      
-      
-      
-//       var data = {
-//         id: tab.id,
-//         title: tab.get("title"),
-//         url: tab.get("url")
-//       }
-
-//       tabs.push(data)
-      
-//     })
-//   }).then(function() {
-//       res.renderT('tabs', {
-//       template: 'tabs',
-//       tabs: tabs
-//     })
-//   })
-  
+  var tabs = []
+  var tabGroups = req.tabGroups
   
   Parse.Promise.as().then(function() {
     var query = new Parse.Query(Tab)
@@ -77,7 +39,8 @@ module.exports.tabs = function(req, res) {
   }).then(function() {
       res.renderT('tabs', {
       template: 'tabs',
-      tabs: tabs
+      tabs: tabs,
+      tabGroups: tabGroups
     })
   })
 

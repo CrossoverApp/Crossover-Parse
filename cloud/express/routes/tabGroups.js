@@ -27,3 +27,27 @@ module.exports.newTabGroup = function(req, res) {
   }
   
 }
+
+module.exports.sidebarTabGroups = function(req, res, next) {
+  var user = req.user
+  var tabGroups = []
+  
+  var query = new Parse.Query(TabGroup)
+  query.equalTo("user", user)
+  query.find({
+    success: function(results) {
+      results.forEach(function(tabGroup) {
+        var data = {
+          id: tabGroup.id,
+          title: tabGroup.get("title")
+        }
+        
+        tabGroups.push(data)
+        
+      })
+    }
+  }).then(function(){
+    req.tabGroups = tabGroups
+    next()
+  })
+}
