@@ -5,11 +5,11 @@
         <ul>
           
           <li class="cd-label">Main</li>
-          <li class="has-children overview">
+          <li class="overview">
             <a href="/overview">Overview</a> 
 
           </li>
-          <li class="has-children notifications">
+          <li class="notifications">
             <a href="/tabs">Your Tabs</a>
 
             
@@ -18,7 +18,7 @@
           <% if (tabGroups.length > 0) { %>
           <%   tabGroups.forEach(function(tabGroup){%>
           
-            <li class="has-children notifications">
+            <li class="notifications">
               <a href="/tabs"><%= tabGroup.title %></a>
             </li>
           

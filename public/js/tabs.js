@@ -98,6 +98,17 @@ $(document).ready(function() {
       }, function(response){
         if(response.success) {
           swal("Nice!", "Your new group, " + inputValue+", was created", "success")
+          swal({
+            title: "Nice!",
+            text: "Your new group, " + inputValue+", was created!",
+            type: "success",
+            showCancelButton: false,
+//             confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Okay",
+            closeOnConfirm: true
+          }, function() {
+            location.reload()
+          });
         } else {
           swal("Oh no!", "We were unable to create your new Tab group. Please try again.", "error")
         }
