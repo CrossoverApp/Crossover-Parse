@@ -8,6 +8,12 @@ module.exports.landing = function(req, res) {
   })
 }
 
+module.exports.overview = function(req, res) {
+  res.renderT('overview', {
+    template: 'overview',
+  })
+}
+
 module.exports.tabs = function(req, res) {
   var user = req.user
   var tabs = []  
