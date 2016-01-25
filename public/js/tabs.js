@@ -77,6 +77,35 @@ $(document).ready(function() {
   $("#logout_button").click(function() {
     window.location.href = "/logout"
   })
+  
+  $("#newTabGroupButton").click(function () {
+    swal({
+      title: "New Tab Group",
+      text: "Please enter a name for your new tab group:",
+      type: "input",
+      showCancelButton: true,
+      closeOnConfirm: false,
+      inputPlaceholder: "Write something",
+      showLoaderonConfirm: true
+    }, function(inputValue) {
+      if (inputValue === false) return false;
+      if (inputValue === "") {
+        swal.showInputError("You need to write something!")
+        return false
+      }
+      $.post('/newTabGroup', {
+        title: inputValue
+      }, function(response){
+        if(response.success) {
+          swal("Nice!", "Your new group, " + inputValue+", was created", "success")
+        } else {
+          swal("Oh no!", "We were unable to create your new Tab group. Please try again.", "error")
+        }
+      })
+      
+      
+    })
+  })
 
 
 });

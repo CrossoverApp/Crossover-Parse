@@ -478,7 +478,7 @@ Sidebar
   font-size: 1.2rem;
   text-align: center;
 }
-.cd-side-nav .action-btn a {
+.cd-side-nav .action-btn button {
   display: block;
   margin: 0 5%;
   padding: 1em 0;
@@ -489,8 +489,10 @@ Sidebar
   text-align: center;
   color: #ffffff;
   font-weight: bold;
+  padding-left: 15px;
+  padding-right: 15px;
 }
-.cd-side-nav .action-btn a::before {
+.cd-side-nav .action-btn button::before {
   display: none;
 }
 @media only screen and (min-width: 768px) {
@@ -543,7 +545,7 @@ Sidebar
     box-shadow: inset 3px 0 0 #1784c7;
     background-color: #33383e;
   }
-  .cd-side-nav .action-btn a {
+  .cd-side-nav .action-btn button {
     margin: 1em 10% 0;
   }
   .cd-side-nav .count {
@@ -595,10 +597,10 @@ Sidebar
   .cd-side-nav .action-btn {
     text-align: left;
   }
-  .cd-side-nav .action-btn a {
+  .cd-side-nav .action-btn button {
     margin: 0 18px;
   }
-  .no-touch .cd-side-nav .action-btn a:hover {
+  .no-touch .cd-side-nav .action-btn button:hover {
     background-color: #1a93de;
   }
   .cd-side-nav .count {

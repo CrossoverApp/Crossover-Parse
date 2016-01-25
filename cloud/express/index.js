@@ -10,7 +10,8 @@ Parse.Cloud.useMasterKey()
   var routes = {
     index: require("cloud/express/routes/index.js"),
     accounts: require("cloud/express/routes/accounts.js"),
-    tabs: require("cloud/express/routes/tabs.js")
+    tabs: require("cloud/express/routes/tabs.js"),
+    tabGroups: require("cloud/express/routes/tabGroups.js")
   }
 
 // Global app configuration section
@@ -67,6 +68,9 @@ app.get('/overview', routes.accounts.auth, routes.index.overview)
 app.get('/login', routes.accounts.login)
 app.get('/register', routes.accounts.register)
 
+// Tab Groups
+app.get('/tabs/:tabGroup', routes.accounts.auth, routes.index.tabs)
+
 // Non-landing GET requests
 app.get('/logout', routes.accounts.logout)
 app.get('/getTabs', routes.accounts.auth, routes.tabs.getTabs)
@@ -79,6 +83,8 @@ app.post('/newUser', routes.accounts.newUser)
 app.post('/user', routes.accounts.user)
 app.post('/newTabs', routes.accounts.auth, routes.tabs.newTabs)
 app.post('/deleteTabs', routes.accounts.auth, routes.tabs.deleteTabs)
+
+app.post('/newTabGroup', routes.accounts.auth, routes.tabGroups.newTabGroup)
 
 // creating tab groups
 // creating tabs

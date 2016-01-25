@@ -1,5 +1,6 @@
 //  Login stuff
 var User = Parse.User
+var TabGroup = Parse.Object.extend("TabGroup")
 
 module.exports.auth = function(req, res, next) {
   if(req.session.user) {
@@ -54,6 +55,13 @@ module.exports.newUser = function(req, res) {
   
   user.signUp(null, {
     success: function(user) {
+			var defaultTabGroup = new TabGroup()
+			defaultTabGroup.set("user", user)
+			defaultTabGroup.set("canDelete", false)
+			defaultTabGroup.set("title", "Home Group")
+			defaultTabGroup.set("tabs", [])
+			defaultTabGroup.save()
+			
       res.successT()
     }, 
     
