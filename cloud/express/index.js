@@ -63,6 +63,7 @@ app.use(function(req, res, next) {
 // Landings
 app.get('/', routes.index.landing)
 app.get('/tabs', routes.accounts.auth, routes.index.tabs)
+app.get('/overview', routes.accounts.auth, routes.index.overview)
 app.get('/login', routes.accounts.login)
 app.get('/register', routes.accounts.register)
 
