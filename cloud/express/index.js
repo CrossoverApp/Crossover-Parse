@@ -69,7 +69,7 @@ app.get('/login', routes.accounts.login)
 app.get('/register', routes.accounts.register)
 
 // Tab Groups
-app.get('/tabs/:tabGroup', routes.accounts.auth, routes.index.tabs)
+app.get('/tab/:tabGroup', routes.accounts.auth, routes.tabGroups.sidebarTabGroups, routes.index.tabGroup)
 
 // Non-landing GET requests
 app.get('/logout', routes.accounts.logout)
