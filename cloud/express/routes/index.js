@@ -52,56 +52,52 @@ module.exports.tabs = function(req, res) {
 module.exports.tabGroup = function(req, res) {
   var user = req.user
   var tabs = []
+  var tabsInGroup = []
   var groupId = req.params.tabGroup 
+  var groupName = ""
   var tabGroups = req.tabGroups
   
   console.log("@@@@@  Group ID:  "+groupId)
   
-  Parse.Promise.as().then(function() {
-    var query = new Parse.Query(TabGroup)
-    
+    var query = new Parse.Query(TabGroup)    
     query.get(groupId, {
-      success: function(tabGroup) {
+      success: function(result) {
+        var tabGroup = new TabGroup()
+        tabGroup = result
         console.log("TAB GROUP FOUND:  "+tabGroup.get("title"))
+        groupName = tabGroup.get("title")
         
-        var tabsInGroup = []
         tabsInGroup = tabGroup.get("tabs")
-        tabsInGroup.forEach(function(tab){
-          query.get(tab.id, {
-            success: function(tab){
-              var data = {
-                id: tab.id,
-                title: tab.get("title"),
-                url: tab.get("url")
-              }
-              
-              tabs.push(data)
-            }
-          })
-        })
         
       }, error: function(object, error) {
         console.log("@@@@@@@     ERROR:  "+error)
       }
-    })
+    }).then(function(){
+      tabsInGroup.forEach(function(tab) {
+        var tabQuery = new Parse.Query(Tab)
+        console.log("TAB ID:  " + tab)
+        tabQuery.get(tab, {
+          success: function(tab) {
+            console.log("TAB TITLE:  "+tab.get("title"))
+            var data = {
+              id: tab.id,
+              title: tab.get("title"),
+              url: tab.get("url")
+            }
 
-//     query.equalTo("user", user)
-
-//     return query.each(function(tab) {
-//       var data = {
-//         id: tab.id,
-//         title: tab.get("title"),
-//         url: tab.get("url")
-//       }
-
-//       tabs.push(data)
-      
-//     })
-  }).then(function() {
+            tabs.push(data)
+          }, error: function(object, error) {
+            console.log("ERROR:  "+error)
+          }
+        })
+      })
+    }).then(function() {
       res.renderT('tabs', {
       template: 'tabs',
       tabs: tabs,
-      tabGroups: tabGroups
+      tabGroups: tabGroups,
+      groupName: groupName
+      
     })
   })
 

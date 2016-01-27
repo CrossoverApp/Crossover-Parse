@@ -19,7 +19,7 @@
           <%   tabGroups.forEach(function(tabGroup){%>
           
             <li class="notifications">
-              <a href="/tabs"><%= tabGroup.title %></a>
+              <a href=<%="/tab/"+tabGroup.id%>><%= tabGroup.title %></a>
             </li>
           
           <%   }) %>

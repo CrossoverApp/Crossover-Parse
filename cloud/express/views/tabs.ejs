@@ -8,7 +8,13 @@
 
 
       <div class="content-wrapper">
+       <% if(typeof groupName !== 'undefined' && groupName) {%>
+          <h1>
+            <%=groupName%>
+        </h1>
+       <% } else { %>
        <h1>Your Tabs</h1>
+       <% } %>
         <div class="row clearfix">
           <div class="col-md-12 column">
             <table class="table table-bordered table-hover" id="tab_logic">
