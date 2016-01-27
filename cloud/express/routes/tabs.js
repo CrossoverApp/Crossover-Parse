@@ -3,6 +3,7 @@ var TabGroup = Parse.Object.extend("TabGroup")
 var User = Parse.User
 
 module.exports.newTabs = function(req, res) {
+  var groupId = ""
   var newTabs = []
   var tabTitles = []
   var tabUrls = []
@@ -11,19 +12,40 @@ module.exports.newTabs = function(req, res) {
   user.id = req.session.user
   
   newTabs = req.param("newTabs")
+  groupId = req.param("tabGroup")
       
   if(newTabs) {
-    if(newTabs) {
-      newTabs.forEach(function(newTab) {
-        var tab = new Tab()
-        tab.set("url", newTab.url)
-        tab.set("title", newTab.title)
-        tab.set("user", user)
-        tab.save()
-      })
-    }
+    var tabGroup = new TabGroup()
+    tabGroup.id = groupId
+    tabGroup.fetch({
+      success: function() {
+        if(newTabs) {
+          return Parse.Promise.when(
+            newTabs.map(function(newTab) {
+              var tab = new Tab()
+              tab.set("url", newTab.url)
+              tab.set("title", newTab.title)
+              tab.set("user", user)
+              return tab.save({
+                success: function(tab) {
+                  console.log("NEW TAB SAVED:  "+tab.get("title"))
+                  tabGroup.add("tabs", tab.id)
+                  tabGroup.save()
+                }, error: function() {
+                  res.errorT()
+                }
+              })
+            })
+          ).then(function(){
+            res.successT()
+          })
+ 
+        }
+      }, error: function() {
+        res.errorT()
+      }
+    })
     
-    res.successT()
     
   } else {
     res.errorT()

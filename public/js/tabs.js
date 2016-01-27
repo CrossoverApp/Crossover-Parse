@@ -30,7 +30,9 @@ $(document).ready(function() {
     }
   });
   
-  $("#save_rows").click(function() {    
+  $("#save_rows").click(function() {
+    var href = $(location).attr("href")
+    var groupId = href.substr(href.lastIndexOf('/') + 1)
     var newTabs = []
     
     $("tr[name]").each(function() {
@@ -63,6 +65,7 @@ $(document).ready(function() {
     if(newTabs.length > 0)
       $.post('/newTabs', {
         newTabs: newTabs,
+        tabGroup: groupId
       }, function(response) {
         if(response.success) {
           console.log("successful save")

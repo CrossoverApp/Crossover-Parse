@@ -73,10 +73,20 @@ module.exports.tabGroup = function(req, res) {
         console.log("@@@@@@@     ERROR:  "+error)
       }
     }).then(function(){
-      tabsInGroup.forEach(function(tab) {
+      if(tabsInGroup < 1) {
+          return res.renderT('tabs', {
+            template: 'tabs',
+            tabs: tabs,
+            tabGroups: tabGroups,
+            groupName: groupName
+
+          })
+      }
+      
+      return Parse.Promise.when( tabsInGroup.map(function(tab) {
         var tabQuery = new Parse.Query(Tab)
         console.log("TAB ID:  " + tab)
-        tabQuery.get(tab, {
+        return tabQuery.get(tab, {
           success: function(tab) {
             console.log("TAB TITLE:  "+tab.get("title"))
             var data = {
@@ -90,16 +100,16 @@ module.exports.tabGroup = function(req, res) {
             console.log("ERROR:  "+error)
           }
         })
-      })
-    }).then(function() {
-      res.renderT('tabs', {
-      template: 'tabs',
-      tabs: tabs,
-      tabGroups: tabGroups,
-      groupName: groupName
-      
+      })).then(function() {
+          res.renderT('tabs', {
+            template: 'tabs',
+            tabs: tabs,
+            tabGroups: tabGroups,
+            groupName: groupName
+
+          })
+        })
     })
-  })
 
 }
 
