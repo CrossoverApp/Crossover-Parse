@@ -1,0 +1,49 @@
+<!--SideBar--> 
+
+<main class="cd-main-content">
+      <nav class="cd-side-nav">
+        <ul>
+          
+          <li class="cd-label">Main</li>
+          <li class="overview">
+            <a href="/overview">Overview</a> 
+
+          </li>
+          <li class="notifications">
+            <a href="/tabs">Your Tabs</a>
+
+            
+          </li>
+          
+          <% if (tabGroups.length > 0) { %>
+          <%   tabGroups.forEach(function(tabGroup){%>
+          
+            <li class="notifications">
+              <a href=<%="/tab/"+tabGroup.id%>><%= tabGroup.title %></a>
+            </li>
+          
+          <%   }) %>
+          <% } %>
+
+          <li class="has-children comments">
+            <a href="#0">Group</a>
+
+            <ul>
+              <li><a href="#0">Edit Groups</a></li>
+              <li><a href="#0">Group A</a></li>
+              <li><a href="#0">Group B</a></li>
+            </ul>
+          </li>
+          
+          
+          
+        </ul>
+
+      
+        <ul>
+          <li class="cd-label">Action</li>
+          <li class="action-btn">
+            <button id="newTabGroupButton">New Tab Group</button>
+          </li>
+        </ul>
+      </nav>

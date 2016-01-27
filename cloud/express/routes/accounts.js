@@ -1,5 +1,6 @@
 //  Login stuff
 var User = Parse.User
+var TabGroup = Parse.Object.extend("TabGroup")
 
 module.exports.auth = function(req, res, next) {
   if(req.session.user) {
@@ -19,9 +20,14 @@ module.exports.auth = function(req, res, next) {
 
 
 module.exports.login = function(req, res) {
-  res.renderT('login', {
-    template: 'login',
-  })
+	if(req.session.user) {
+		res.redirect('/tabs')
+	} else {
+		res.renderT('login', {
+    	template: 'login',
+  	})
+	}
+  
 }
 
 module.exports.register = function(req, res) {
@@ -49,6 +55,13 @@ module.exports.newUser = function(req, res) {
   
   user.signUp(null, {
     success: function(user) {
+			var defaultTabGroup = new TabGroup()
+			defaultTabGroup.set("user", user)
+			defaultTabGroup.set("canDelete", false)
+			defaultTabGroup.set("title", "Home Group")
+			defaultTabGroup.set("tabs", [])
+			defaultTabGroup.save()
+			
       res.successT()
     }, 
     
@@ -64,7 +77,7 @@ module.exports.logout = function(req, res) {
   console.log(1)
   Parse.User.logOut()
   req.session = null
-  res.redirect("/login")
+  res.redirect("/")
 }
 
 
