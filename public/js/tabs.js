@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  
+  var href = $(location).attr("href")
+  var groupId = href.substr(href.lastIndexOf('/') + 1)
   var i = $('tbody tr').length - 1;
   
   $("#add_row").click(function() {
@@ -21,9 +22,10 @@ $(document).ready(function() {
       i--;
       
       $.post('/deleteTabs', {
-        deleted: deleted
+        deleted: deleted,
+        tabGroup: groupId
       },function(response){
-        
+        location.reload()
         console.log("successfully deleted")
       })
       
@@ -31,8 +33,6 @@ $(document).ready(function() {
   });
   
   $("#save_rows").click(function() {
-    var href = $(location).attr("href")
-    var groupId = href.substr(href.lastIndexOf('/') + 1)
     var newTabs = []
     
     $("tr[name]").each(function() {
@@ -68,6 +68,7 @@ $(document).ready(function() {
         tabGroup: groupId
       }, function(response) {
         if(response.success) {
+          location.reload()
           console.log("successful save")
         } else {
           console.log("error saving")

@@ -54,23 +54,43 @@ module.exports.newTabs = function(req, res) {
 }
 
 module.exports.deleteTabs = function(req, res) {
+  var groupId = ""
   var deletedTabs = []
   deletedTabs = req.param("deleted")
+  groupId = req.param("tabGroup")
   
-  var query = new Parse.Query(Tab)
-  query.containedIn("objectId", deletedTabs).find().then( function(tabs) {
-    tabs.forEach(function(tab) {
-      tab.destroy({
-        success: function() {
-          res.successT()
-        }, 
-        error: function() {
-          res.errorT()
-        }
+  var tabGroup = new TabGroup()
+  
+  tabGroup.id = groupId
+  tabGroup.fetch({
+    success: function() {
+      
+      for(var i = 0; i < deletedTabs.length; i++) {
+        tabGroup.remove("tabs", deletedTabs[i])
+      }
+      
+      tabGroup.save().then(function() {
+        var query = new Parse.Query(Tab)
+  
+        query.containedIn("objectId", deletedTabs).find().then( function(tabs) {
+          return Parse.Promise.when(
+            tabs.map(function(tab) {
+              tab.destroy()
+            })
+          )
+
+
+        }).then( function() {
+            res.successT()
+          }
+        )
       })
-    })
-    
+      
+
+    }
   })
+  
+
     
 }
 
