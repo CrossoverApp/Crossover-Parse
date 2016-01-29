@@ -4,8 +4,6 @@ var app = express()
 // Set Master Key
 Parse.Cloud.useMasterKey()
 
-/*  **** FIX ROUTES ****  */
-
 // Routes
   var routes = {
     index: require("cloud/express/routes/index.js"),
@@ -59,8 +57,6 @@ app.use(function(req, res, next) {
   next()
 })
 
-/* **** FIX LANDINGS AND FUNCTION ROUTES **** */ 
-
 // Landings
 app.get('/', routes.index.landing)
 app.get('/tabs', routes.accounts.auth, routes.tabGroups.sidebarTabGroups, routes.index.tabs)
@@ -73,23 +69,20 @@ app.get('/tab/:tabGroup', routes.accounts.auth, routes.tabGroups.sidebarTabGroup
 
 // Non-landing GET requests
 app.get('/logout', routes.accounts.logout)
+
 app.get('/getTabs', routes.accounts.auth, routes.tabs.getTabs)
+
 app.get('/getTabGroups', routes.accounts.auth, routes.tabGroups.getTabGroups)
 app.get('/getTabGroupTabs', routes.accounts.auth, routes.tabGroups.getTabGroupTabs)
-// getting tabs
-// getting tab groups
-
 
 // Post Handling
 app.post('/newUser', routes.accounts.newUser)
 app.post('/user', routes.accounts.user)
+
 app.post('/newTabs', routes.accounts.auth, routes.tabs.newTabs)
 app.post('/deleteTabs', routes.accounts.auth, routes.tabs.deleteTabs)
 
 app.post('/newTabGroup', routes.accounts.auth, routes.tabGroups.newTabGroup)
-
-// creating tab groups
-// creating tabs
 
 
 
