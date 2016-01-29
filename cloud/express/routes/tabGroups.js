@@ -52,6 +52,32 @@ module.exports.sidebarTabGroups = function(req, res, next) {
   })
 }
 
+module.exports.getTabGroups = function(req, res) {
+  var user = req.user
+  var tabGroups = []
+  
+  var query = new Parse.Query(TabGroup)
+  query.equalTo("user", user)
+  query.find({
+    success: function(results) {
+      results.forEach(function(tabGroup) {
+        var data = {
+          id: tabGroup.id,
+          title: tabGroup.get("title")
+        }
+        
+        tabGroups.push(data)
+        
+      })
+    }
+  }).then(function(){
+    res.successT({
+      tabGroups: tabGroups
+    })
+  })
+  
+}
+
 module.exports.getTabGroupTabs = function(req, res) {
   var user = req.user
   var groupId = ""

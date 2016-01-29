@@ -74,6 +74,7 @@ app.get('/tab/:tabGroup', routes.accounts.auth, routes.tabGroups.sidebarTabGroup
 // Non-landing GET requests
 app.get('/logout', routes.accounts.logout)
 app.get('/getTabs', routes.accounts.auth, routes.tabs.getTabs)
+app.get('/getTabGroups', routes.accounts.auth, routes.tabGroups.getTabGroups)
 app.get('/getTabGroupTabs', routes.accounts.auth, routes.tabGroups.getTabGroupTabs)
 // getting tabs
 // getting tab groups
