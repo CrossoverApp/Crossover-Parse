@@ -51,3 +51,76 @@ module.exports.sidebarTabGroups = function(req, res, next) {
     next()
   })
 }
+
+module.exports.getTabGroupTabs = function(req, res) {
+  var user = req.user
+  var groupId = ""
+  var tabs = []
+  
+  groupId = req.param("tabGroup")
+  
+  var query = new Parse.Query(TabGroup)
+  
+  query.get(groupId).then(function(tabGroup) {
+    var tabIds = tabGroup.get("tabs")
+    
+    return Parse.Promise.when(
+        tabIds.map(function(tabId) {
+          var tabQuery = new Parse.Query(Tab)
+          return tabQuery.get(tabId, {
+            success: function(tab) {
+              var data = {
+                id: tab.id,
+                title: tab.get("title"),
+                url: tab.get("url")
+              }
+              
+              tabs.push(data)
+            }
+          })
+
+        })
+      )
+    
+  }).then(function() {
+    res.successT({
+      tabs: tabs
+    })
+  })
+  
+  
+  
+//   query.get(groupId, {
+//     success: function(tabGroup) {
+//       var tabIds = tabGroup.get("tabs")
+      
+//       return Parse.Promise.when(
+//         tabIds.map(function(tabId) {
+//           var tabQuery = new Parse.Query(Tab)
+//           tabQuery.get(tabId, {
+//             success: function(tab) {
+//               var data = {
+//                 id: tab.id,
+//                 title: tab.get("title"),
+//                 url: tab.get("url")
+//               }
+              
+//               tabs.push(data)
+//             }
+//           })
+
+//         })
+//       ).then(function() {
+//         res.successT({
+//           tabs: tabs
+//         })
+//       })
+      
+      
+//     }
+//   })
+  
+  
+  
+  
+}
