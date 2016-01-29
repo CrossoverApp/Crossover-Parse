@@ -86,41 +86,6 @@ module.exports.getTabGroupTabs = function(req, res) {
     res.successT({
       tabs: tabs
     })
-  })
-  
-  
-  
-//   query.get(groupId, {
-//     success: function(tabGroup) {
-//       var tabIds = tabGroup.get("tabs")
-      
-//       return Parse.Promise.when(
-//         tabIds.map(function(tabId) {
-//           var tabQuery = new Parse.Query(Tab)
-//           tabQuery.get(tabId, {
-//             success: function(tab) {
-//               var data = {
-//                 id: tab.id,
-//                 title: tab.get("title"),
-//                 url: tab.get("url")
-//               }
-              
-//               tabs.push(data)
-//             }
-//           })
-
-//         })
-//       ).then(function() {
-//         res.successT({
-//           tabs: tabs
-//         })
-//       })
-      
-      
-//     }
-//   })
-  
-  
-  
+  }) 
   
 }
