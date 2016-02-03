@@ -126,6 +126,10 @@ module.exports.getTabs = function(req, res) {
     res.successT({
       tabs: tabs
     })
+  }, function(error) {
+    res.errorT({
+      message: error.message
+    })
   })
 
 }
