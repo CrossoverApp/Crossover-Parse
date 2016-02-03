@@ -13,23 +13,27 @@ $(document).ready(function() {
   $("#delete_row").click(function() {
     var deleted = []
     
-    if (i > 1) {
-      $("#addr" + (i - 1)).html('');
+    if (i >= 1) {
+   // while (i >= 1){
+      // if((tabslist[i-1].attr('type') == 'checkbox')&&(tabslist[i-1].checked)){
+   
+     // $("#addr" + (i - 1)).html('');
       
       deleted.push($("#addr"+(i-1)).attr("name"))
       
-      $("#addr"+(i-1)).attr("name", "")
+      //$("#addr"+(i-1)).attr("name", "")
       i--;
       
-      $.post('/deleteTabs', {
+    
+   } 
+   
+    $.post('/deleteTabs', {
         deleted: deleted,
         tabGroup: groupId
       },function(response){
         location.reload()
         console.log("successfully deleted")
       })
-      
-    }
   });
   
   $("#save_rows").click(function() {
