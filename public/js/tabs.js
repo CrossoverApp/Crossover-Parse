@@ -10,17 +10,36 @@ $(document).ready(function() {
     i++;
   });
   
+  $("#open_rows").click(function() {
+    if (i >= 1){
+      //can replace if statement w/ below when url list is retrieved
+    //  while(i >= 1) {
+      //window.open(tabslist[i-1].attr('url'))
+      //--i
+    //  }
+      
+   window.open("http://www.espn.com")
+   window.open("http://www.yahoo.com")
+    }
+  });
+  
+  
+  
   $("#delete_row").click(function() {
     var deleted = []
     
     if (i >= 1) {
+      // can replace if statement w/ below once checkbox in place and
+      // when checkbox list is retrieved
    // while (i >= 1){
       // if((tabslist[i-1].attr('type') == 'checkbox')&&(tabslist[i-1].checked)){
    
-     // $("#addr" + (i - 1)).html('');
+      //is the line necessary?
+     // $("#addr" + (i - 1)).html(''); 
       
       deleted.push($("#addr"+(i-1)).attr("name"))
       
+       //is the line necessary?
       //$("#addr"+(i-1)).attr("name", "")
       i--;
       
