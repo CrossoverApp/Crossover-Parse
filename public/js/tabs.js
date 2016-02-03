@@ -9,17 +9,12 @@ $(document).ready(function() {
     $('#tab_logic').append('<tr id="addr' + (i + 1) + '" name="new"></tr>');
     i++;
   });
-  
+
   $("#open_rows").click(function() {
-    if (i >= 1){
-      //can replace if statement w/ below when url list is retrieved
-    //  while(i >= 1) {
-      //window.open(tabslist[i-1].attr('url'))
-      //--i
-    //  }
-      
-   window.open("http://www.espn.com")
-   window.open("http://www.yahoo.com")
+    if (i >= 1) {
+      $("input[name=url]").each(function() {        
+        window.open(/^(http|https):/.test($(this).val()) ? $(this).val() : 'http://' + $(this).val())
+      })
     }
   });
   
