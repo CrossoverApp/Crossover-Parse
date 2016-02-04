@@ -60,7 +60,7 @@ $(document).ready( function() {
 		}, function(response) {
 			if(response.success) {
 				buttonText("Logging in...")
-				window.location.href = "/tabs"
+				window.location.href = "/overview"
 			} else {
 				buttonText("Error logging in")
 				window.location.href = "/login"

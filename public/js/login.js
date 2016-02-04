@@ -26,7 +26,7 @@ $(document).ready( function() {
 
         if(response.success) {
           buttonText("Logging in...")      
-          window.location.href = "/tabs"
+          window.location.href = "/overview"
         } else {
           buttonEnabled = true
           buttonText("Login failed")

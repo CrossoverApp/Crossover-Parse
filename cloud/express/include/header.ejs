@@ -46,7 +46,11 @@
           <li><a href="#0">Support</a></li> -->
           <li class="has-children account">
             <a href="#0">
+            <% if(typeof groupName !== 'undefined' && groupName) {%>
+              <img src="../img/cd-avatar.png" alt="avatar">
+            <% } else { %>          
               <img src="img/cd-avatar.png" alt="avatar">
+            <% } %>
               Account
             </a>
 

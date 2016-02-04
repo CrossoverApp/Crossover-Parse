@@ -21,7 +21,7 @@ module.exports.auth = function(req, res, next) {
 
 module.exports.login = function(req, res) {
 	if(req.session.user) {
-		res.redirect('/tabs')
+		res.redirect('/overview')
 	} else {
 		res.renderT('login', {
     	template: 'login',

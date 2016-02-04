@@ -23,31 +23,42 @@ $(document).ready(function() {
   $("#delete_row").click(function() {
     var deleted = []
     
-    if (i >= 1) {
-      // can replace if statement w/ below once checkbox in place and
-      // when checkbox list is retrieved
-   // while (i >= 1){
-      // if((tabslist[i-1].attr('type') == 'checkbox')&&(tabslist[i-1].checked)){
+    $('input[name=select]').each(function() {
+      if ($(this).is(":checked")) {
+        deleted.push($(this).closest("tr").attr("name"))
+      }
+    })
+    
+//     if (i >= 1) {
+//       // can replace if statement w/ below once checkbox in place and
+//       // when checkbox list is retrieved
+//    // while (i >= 1){
+//       // if((tabslist[i-1].attr('type') == 'checkbox')&&(tabslist[i-1].checked)){
    
-      //is the line necessary?
-     // $("#addr" + (i - 1)).html(''); 
+//       //is the line necessary?
+//      // $("#addr" + (i - 1)).html(''); 
       
-      deleted.push($("#addr"+(i-1)).attr("name"))
+//       deleted.push($("#addr"+(i-1)).attr("name"))
       
-       //is the line necessary?
-      //$("#addr"+(i-1)).attr("name", "")
-      i--;
+//        //is the line necessary?
+//       //$("#addr"+(i-1)).attr("name", "")
+//       i--;
       
     
-   } 
+//    } 
    
-    $.post('/deleteTabs', {
+    if(deleted.length > 0) {
+      $.post('/deleteTabs', {
         deleted: deleted,
         tabGroup: groupId
-      },function(response){
+      }, function(response) {
         location.reload()
         console.log("successfully deleted")
       })
+    } else {
+      alert("Select something to delete!")
+    }
+
   });
   
   $("#save_rows").click(function() {

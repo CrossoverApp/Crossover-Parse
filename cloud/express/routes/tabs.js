@@ -41,8 +41,10 @@ module.exports.newTabs = function(req, res) {
           })
  
         }
-      }, error: function() {
-        res.errorT()
+      }, error: function(error) {
+        res.errorT({
+          message: error.message
+        })
       }
     })
     
@@ -87,6 +89,10 @@ module.exports.deleteTabs = function(req, res) {
       })
       
 
+    }, error: function(error) {
+      res.errorT({
+        message: error.message
+      })
     }
   })
   
