@@ -12,12 +12,41 @@ $(document).ready(function() {
 
   $("#open_rows").click(function() {
     if (i >= 1) {
+     console.log("open all rows clicked");
+
       $("input[name=url]").each(function() {        
         window.open(/^(http|https):/.test($(this).val()) ? $(this).val() : 'http://' + $(this).val())
       })
     }
   });
   
+  $(".button").click(function() {
+            window.open(/^(http|https):/.test($(this).val()) ? $(this).val() : 'http://' + $(this).val())
+
+    
+  });
+  
+
+
+//   $(".selectall").clic(function() {
+//      $('input[name=select]').each(function() {
+//     if ($(this).is(":checked")) {
+//         // Iterate each checkbox
+//         $(':checkbox').each(function() {
+//             this.checked = true;                        
+//         })
+//     }
+// 			     })
+// });
+  
+ $('.selectall').click(function(event) {
+        var $that = $(this);
+        $(':checkbox').each(function() {
+            this.checked = $that.is(':checked');
+        });
+    });
+  
+
   
   
   $("#delete_row").click(function() {

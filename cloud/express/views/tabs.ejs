@@ -29,6 +29,12 @@
                   <th class="text-center">
                     URL
                   </th>
+                   <th class="text-center">
+                    Open Tab
+                  </th>
+                   <th class="text-center">
+                    <input type="checkbox" class="selectall" class="form-control" />
+                  </th>
                 
                 </tr>
               </thead>
@@ -46,9 +52,14 @@
                     <td>
                       <input type="text" name='url' placeholder='URL' class="form-control" value="<%= tab.url %>"/>
                     </td>
+                     <td>
+                      <input class="button" type="submit" name="button" value="<%= tab.url %>"//> 
+                     </td>
                     <td>
-                      <input type="checkbox" name="select" id="id" value="checkbox" class="form-control"/ >
+                      <input type="checkbox" name="select" id="id" value="checkbox" style="text-align: center; vertical-align: middle;"  >
                     </td>
+                   
+
                   </tr>
                 <%     i++ %>
                 <%   }) %>
@@ -65,7 +76,10 @@
                     <input type="text" name='url' placeholder='URL' class="form-control"/>
                   </td>
                    <td>
-                      <input type="checkbox" name="select0" id="id" value="checkbox" class="form-control"/ >
+                      <input class="button" type="submit" name="button" value="enter"/> 
+                     </td>
+                   <td>
+                      <input type="checkbox" name="select" id="id" value="checkbox" style="text-align: center; vertical-align: middle;" >
                    </td>
                 </tr>
 
@@ -87,10 +101,10 @@
           </div>
 
           <div class="col-md-3">
-           <a id='delete_row' class="btn btn-default center-block" style="margin-left: 15%; margin-right: 15%; margin-top: 3%; margin-bottom: 3%;">Delete Row</a>  
+           <a id='delete_row' class="btn btn-default center-block" style="margin-left: 15%; margin-right: 15%; margin-top: 3%; margin-bottom: 3%;">Delete Row(s)</a>  
           </div>
           <div class="col-md-3">
-           <a id='open_rows' class="btn btn-default center-block" style="margin-left: 15%; margin-right: 15%; margin-top: 3%; margin-bottom: 3%;">Open Rows</a>  
+           <a id='open_rows' class="btn btn-default center-block" style="margin-left: 15%; margin-right: 15%; margin-top: 3%; margin-bottom: 3%;">Open All Rows</a>  
           </div>
 
         </div>
