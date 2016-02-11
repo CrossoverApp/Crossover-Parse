@@ -28,6 +28,16 @@ $(document).ready(function() {
   
 
 
+//This is where we move the tabs up and down
+$('#mytable input.move').click(function() {
+    var row = $(this).closest('tr[name]');
+    if ($(this).hasClass('up'))
+        row.prev().before(row);
+    else
+        row.next().after(row);
+});
+
+
 //   $(".selectall").clic(function() {
 //      $('input[name=select]').each(function() {
 //     if ($(this).is(":checked")) {
