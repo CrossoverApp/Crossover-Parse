@@ -29,13 +29,15 @@ $(document).ready(function() {
 
 
 //This is where we move the tabs up and down
-$('#mytable input.move').click(function() {
-    var row = $(this).closest('tr[name]');
-    if ($(this).hasClass('up'))
-        row.prev().before(row);
-    else
-        row.next().after(row);
-});
+    $(".up,.down").click(function(){
+        var row = $(this).parents("tr:first");
+        if ($(this).is(".up")) {
+            row.insertBefore(row.prev());
+        } else {
+            row.insertAfter(row.next());
+        }
+    });
+
 
 
 //   $(".selectall").clic(function() {
