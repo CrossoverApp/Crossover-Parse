@@ -22,11 +22,34 @@ $(document).ready(function() {
   
   $(".button").click(function() {
             window.open(/^(http|https):/.test($(this).val()) ? $(this).val() : 'http://' + $(this).val())
-
+console.log(($(this).val()));
     
   });
   
+  
 
+  
+$("#open_selected_rows").click(function() {
+    if (i >= 1) {
+     console.log("open selected rows clicked");
+
+   $("tr[name]").each(function() {
+     var url = $(this).find("[name=url]").val()
+     console.log(url);
+     var check_b = $(this).find("[name=select]")
+     	console.log(check_b);
+	
+	if (check_b.is(":checked")) {
+	  console.log("this is checked, will open url");
+	   window.open(/^(http|https):/.test(url) ? url : 'http://' + url)
+	}
+	
+
+	  
+	
+    })
+    }
+    });
 
 //This is where we move the tabs up and down
     $(".up,.down").click(function(){
