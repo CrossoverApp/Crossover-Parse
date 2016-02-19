@@ -49,9 +49,9 @@ module.exports.user = function(req, res) {
 
 
 module.exports.email = function(req, res) {
-  var email = currentUser.get('email')
+  var email = req.user.get('email')
   res.successT({
-  email: email
+  	email: email
   })
 }
 
