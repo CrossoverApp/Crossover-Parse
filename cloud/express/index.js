@@ -61,7 +61,7 @@ app.use(function(req, res, next) {
 app.get('/', routes.index.landing)
 // app.get('/tabs', routes.accounts.auth, routes.tabGroups.sidebarTabGroups, routes.index.tabs)
 app.get('/overview', routes.accounts.auth, routes.tabGroups.sidebarTabGroups, routes.index.overview)
-app.get('/account', routes.accounts.auth, routes.tabGroups.sidebarTabGroups, routes.index.account)
+app.get('/account', routes.accounts.auth, routes.tabGroups.sidebarTabGroups, routes.accounts.email, routes.index.account)
 
 app.get('/login', routes.accounts.login)
 app.get('/register', routes.accounts.register)

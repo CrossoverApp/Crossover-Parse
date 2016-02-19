@@ -20,7 +20,8 @@ module.exports.account = function(req, res) {
   console.log("OVERVIEW TAB GROUPS:  "+req.tabGroups)
   res.renderT('account', {
     template: 'account',
-    tabGroups: req.tabGroups
+    tabGroups: req.tabGroups,
+    email: req.email
   })
 }
 

@@ -44,8 +44,6 @@ console.log(($(this).val()));
 // $("#txt_name").keyup(function(){
 //             alert($(this).val());
 //         });
-
-$('[id$=txt_name]').val("email");
   
 
 

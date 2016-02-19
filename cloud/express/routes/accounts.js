@@ -48,11 +48,9 @@ module.exports.user = function(req, res) {
 }
 
 
-module.exports.email = function(req, res) {
-  var email = req.user.get('email')
-  res.successT({
-  	email: email
-  })
+module.exports.email = function(req, res, next) {
+  req.email = req.user.get('email')
+  next()
 }
 
 module.exports.newUser = function(req, res) {
