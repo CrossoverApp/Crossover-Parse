@@ -27,8 +27,34 @@ console.log(($(this).val()));
   });
   
   
-
   
+  
+  
+  
+  
+  
+  $( "#target" ).click(function() {
+  alert( "Handler for .click() called." );
+});
+  
+//   $("#txt_name").keyup(function(){
+//             alert($(this).val());
+//         });
+  
+// $("#txt_name").keyup(function(){
+//             alert($(this).val());
+//         });
+
+$('[id$=txt_name]').val("email");
+  
+
+
+
+
+
+
+
+
 $("#open_selected_rows").click(function() {
     if (i >= 1) {
      console.log("open selected rows clicked");

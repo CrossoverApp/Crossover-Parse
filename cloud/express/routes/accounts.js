@@ -47,6 +47,14 @@ module.exports.user = function(req, res) {
   })
 }
 
+
+module.exports.email = function(req, res) {
+  var email = currentUser.get('email')
+  res.successT({
+  email: email
+  })
+}
+
 module.exports.newUser = function(req, res) {
   var user = new Parse.User()
   user.set("username", req.param("email"))
