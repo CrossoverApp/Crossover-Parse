@@ -616,7 +616,7 @@ Sidebar
     margin: 0 18px;
   }
   .no-touch .cd-side-nav .delete-btn button:hover {
-    background-color: #00000;
+    background-color: #0000;
   }
   .cd-side-nav .count {
     /* reset style */
