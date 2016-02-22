@@ -14,7 +14,7 @@ $(document).ready(function() {
     if (i >= 1) {
      console.log("open all rows clicked");
 
-      $("input[name=url]").each(function() {        
+      $("input[name=button]").each(function() {        
         window.open(/^(http|https):/.test($(this).val()) ? $(this).val() : 'http://' + $(this).val())
       })
     }
@@ -58,7 +58,7 @@ $("#open_selected_rows").click(function() {
      console.log("open selected rows clicked");
 
    $("tr[name]").each(function() {
-     var url = $(this).find("[name=url]").val()
+     var url = $(this).find("[name=button]").val()
      console.log(url);
      var check_b = $(this).find("[name=select]")
      	console.log(check_b);
