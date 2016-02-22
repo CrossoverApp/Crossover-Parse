@@ -29,24 +29,6 @@ console.log(($(this).val()));
   
   
   
-  
-  
-  
-  
-  $( "#target" ).click(function() {
-  alert( "Handler for .click() called." );
-});
-  
-//   $("#txt_name").keyup(function(){
-//             alert($(this).val());
-//         });
-  
-// $("#txt_name").keyup(function(){
-//             alert($(this).val());
-//         });
-  
-
-
 
 
 
