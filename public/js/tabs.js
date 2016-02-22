@@ -181,6 +181,8 @@ $("#open_selected_rows").click(function() {
     window.location.href = "/logout"
   })
   
+
+  //New Tab Group Button
   $("#newTabGroupButton").click(function () {
     swal({
       title: "New Tab Group",
@@ -221,5 +223,45 @@ $("#open_selected_rows").click(function() {
     })
   })
 
+//Delete Tab Group
+$("#deleteTabGroupButton").click(function () {
+    swal({
+      title: "Delete Tab Group",
+      text: "Please click on which group to delete",
+      type: "input",
+      showCancelButton: true,
+      closeOnConfirm: false,
+      inputPlaceholder: "Write something",
+      showLoaderonConfirm: true
+    }, function(inputValue) {
+      if (inputValue === false) return false;
+      if (inputValue === "") {
+        swal.showInputError("You need to write something!")
+        return false
+      }
+      $.post('/newTabGroup', {
+        title: inputValue
+      }, function(response){
+        if(response.success) {
+          swal("Nice!", "Your new group, " + inputValue+", was created", "success")
+          swal({
+            title: "Nice!",
+            text: "Your new group, " + inputValue+", was created!",
+            type: "success",
+            showCancelButton: false,
+//             confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Okay",
+            closeOnConfirm: true
+          }, function() {
+            location.reload()
+          });
+        } else {
+          swal("Oh no!", "We were unable to create your new Tab group. Please try again.", "error")
+        }
+      })
+      
+      
+    })
+  })
 
 });
