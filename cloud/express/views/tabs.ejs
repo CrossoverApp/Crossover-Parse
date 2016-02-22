@@ -26,14 +26,15 @@
                   <th class="text-center">
                     Title
                   </th>
-                  <th class="text-center">
+           
+                   <th class="text-center">
                     URL
                   </th>
                    <th class="text-center">
-                    Open Tab
-                  </th>
-                   <th class="text-center">
                     <input type="checkbox" class="selectall" class="form-control" />
+                  </th>
+                   <th class="text-center" colspan="2">
+                    Move
                   </th>
                 
                 </tr>
@@ -47,22 +48,20 @@
                       <%= i+1 %>
                     </td>
                     <td>
-                      <input type="text" name='title' placeholder='Title' class="form-control" value="<%= tab.title %>"/>
+                      <input type="text" name='title' placeholder='Title' class="form-control" style="text-align:center;" value="<%= tab.title %>"/>
                     </td>
-                    <td>
-                      <input type="text" name='url' placeholder='URL' class="form-control" value="<%= tab.url %>"/>
-                    </td>
-                     <td>
-                      <input class="button" type="submit" name="button" value="<%= tab.url %>"//> 
+                    
+                     <td align="center">
+                      <input class="button" style="height:25px;width:200px; text-align:center;" type="submit" name="button" value="<%= tab.url %>"//> 
                      </td>
-                    <td>
+                    <td align="center">
                       <input type="checkbox" name="select" id="id" value="checkbox" style="text-align: center; vertical-align: middle;"  >
                     </td>
                     <td>
                       <a href = "#" class = "up">Up</a>
                     </td>
                     <td>
-                      <a href = "#" class = "down">Down</a>
+                      <a href = "#" class = "down" >Down</a>
                     </td>
 
                   </tr>

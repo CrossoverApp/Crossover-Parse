@@ -36,6 +36,28 @@ module.exports.register = function(req, res) {
   })
 }
 
+
+module.exports.changePass = function(req, res) {
+  //req.user.set("password", req.param("newPassword"))
+  res.successT()
+}
+
+//nelson ~code
+// req.user.save({
+//     success: function() {
+//         // send success object back
+//         res.successT()
+//     }, error: function(error){
+//         // send error object back
+//         res.errorT({
+//             error: error.message
+//         })
+//     }
+// })
+// 
+// 
+// 
+
 module.exports.user = function(req, res) {
   Parse.User.logIn(
     req.param("email"), req.param("password")
