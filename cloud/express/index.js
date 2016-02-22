@@ -66,6 +66,8 @@ app.get('/account', routes.accounts.auth, routes.tabGroups.sidebarTabGroups, rou
 app.get('/login', routes.accounts.login)
 app.get('/register', routes.accounts.register)
 app.get('/email', routes.accounts.auth, routes.accounts.email )
+app.get('/changePass', routes.accounts.auth, routes.accounts.changePass )
+
 
 
 // Tab Groups
