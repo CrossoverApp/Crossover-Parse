@@ -264,4 +264,11 @@ $("#deleteTabGroupButton").click(function () {
     })
   })
 
+$('#tab_logic').sortable({
+  containerSelector: 'table',
+  itemPath: '> tbody',
+  itemSelector: 'tr',
+  placeholder: '<tr class="placeholder" style="z-index: 999"/>'
+});
+
 });
