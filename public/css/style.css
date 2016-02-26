@@ -17,11 +17,15 @@ body {
   color: #3e454c;
   background: #ECEFF1 !important;
 /*   background-color: #ffffff; */
+background-color: #ECEFF1 ;
 }
+
 body::after {
   clear: both;
   content: "";
   display: table;
+  background: #546E7A ;
+  background-color: #546E7A ;
 }
 
 a {
@@ -33,6 +37,8 @@ input {
   font-family: "Open Sans", sans-serif;
   font-size: 1.6rem;
 }
+
+
 
 .centerCheck {
   text-align: center;
@@ -541,6 +547,9 @@ Sidebar
   }
   .cd-side-nav.is-fixed {
     position: fixed;
+    overflow-y: scroll;
+    top: 0;
+    bottom: 0;
   }
   .cd-side-nav > ul {
     /* reset style */
