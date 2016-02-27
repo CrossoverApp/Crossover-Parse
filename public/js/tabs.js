@@ -2,6 +2,7 @@ $(document).ready(function() {
   var href = $(location).attr("href")
   var groupId = href.substr(href.lastIndexOf('/') + 1)
   var i = $('tbody tr').length - 1;
+  var url = window.location.href;
   
   $("#add_row").click(function() {
     $('#addr' + i).html("<td>" + (i + 1) + "</td><td><input name='title' type='text' placeholder='Title' class='form-control input-md'  /> </td><td><input  name='url' type='text' placeholder='URL'  class='form-control input-md'></td>");
@@ -28,7 +29,12 @@ console.log(($(this).val()));
   
   
   
-  
+   $(".topmenu a").each(function() {
+            // checks if its the same on the address bar
+            if (url == (this.href)) {
+                $(this).closest("li").addClass("active");
+            }
+        });
 
 
 

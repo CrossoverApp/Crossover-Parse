@@ -19,11 +19,11 @@
          <div class='wrapper text-center'>
           <div class="btn-group">
            
-           <a id="add_row" class="btn btn-default center-block" >Add Row</a>
-           <a id="save_rows" class="btn btn-primary center-block">Save</a>           
-           <a id='delete_row' class="btn btn-default center-block" >Delete Row(s)</a>  
-           <a id='open_selected_rows' class="btn btn-default center-block" >Open Selected Rows</a>  
-           <a id='open_rows' class="btn btn-default center-block">Open All Rows</a>  
+           <a id="add_row" class="btn btn-blue center-block" >Add Row</a>
+           <a id='delete_row' class="btn btn-red center-block" >Delete Row(s)</a> 
+            <a id="save_rows" class="btn btn-blue center-block">Save</a>    
+           <a id='open_selected_rows' class="btn btn-green center-block" >Open Selected Rows</a>  
+           <a id='open_rows' class="btn btn-green center-block">Open All Rows</a>  
            
           </div>
          </div>
@@ -32,7 +32,7 @@
 
         <div class="row clearfix">
           <div class="col-md-12 column">
-            <table class="table table-bordered table-hover" id="tab_logic">
+            <table class="table tablecolor table-bordered table-hover" id="tab_logic">
               <thead>
                 <tr>
              <!--     <th class="text-center">
@@ -67,7 +67,7 @@
                       <input type="checkbox" name="select" id="id" value="checkbox" style="text-align: center; vertical-align: middle;"  >
                     </td>
                     <td>
-                      <input type="text" name='title' placeholder='Title' class="form-control" style="text-align:center;" value="<%= tab.title %>"/>
+                      <input type="text" name='title' placeholder='Title' class="form-control" style="text-align:center; background-color:#ECEFF1" value="<%= tab.title %>"/>
                     </td>
                     
                      <td align="center">

@@ -1,7 +1,7 @@
 <!--SideBar--> 
 
 <main class="cd-main-content">
-      <nav class="cd-side-nav">
+      <nav class="cd-side-nav topmenu">
         <ul>
           
           <li class="cd-label">Main</li>
@@ -10,16 +10,19 @@
 
           </li>
           
+          
+        
           <% if (tabGroups.length > 0) { %>
           <%   tabGroups.forEach(function(tabGroup){%>
           
+          
             <li class="notifications">
-              <a href=<%="/tab/"+tabGroup.id%>><%= tabGroup.title %></a>
+              <a href=<%="/tab/"+tabGroup.id%>  > <%= tabGroup.title %></a>
             </li>
           
           <%   }) %>
           <% } %>
-
+       
           <!--<li class="has-children comments">
             <a href="#0">Group</a>
 
@@ -33,6 +36,7 @@
           
           
         </ul>
+     
 
       
         <ul>
