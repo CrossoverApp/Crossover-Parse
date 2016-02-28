@@ -246,7 +246,7 @@ $("#deleteTabGroupButton").click(function () {
             });
         });
       
-
+});
 $('#tab_logic').sortable({
   containerSelector: 'table',
   itemPath: '> tbody',
