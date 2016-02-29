@@ -190,33 +190,30 @@ $("#open_selected_rows").click(function() {
 
   //New Tab Group Button
   $("#newTabGroupButton").click(function () {
+		var tabTitle = ""
     swal({
       title: "New Tab Group",
       text: "Please enter a name for your new tab group:",
-      type: "input",
+			html: '<p style="padding-bottom: 20px">Enter a name for your new Tab Group: </p> <p><input id="input-field" style="margin: 10px; padding: 5px; font-size: 20px;"></p>',
       showCancelButton: true,
       closeOnConfirm: false,
       inputPlaceholder: "Write something",
       showLoaderonConfirm: true
-    }, function(inputValue) {
-      if (inputValue === false) return false;
-      if (inputValue === "") {
-        swal.showInputError("You need to write something!")
+    }, function() {
+      if ($('#input-field').val() === false) return false;
+      if ($('#input-field').val() === "") {
+        swal(   'Woops!',   'You need to enter something!',   'error' )
         return false
       }
+			tabTitle = $('#input-field').val()
       $.post('/newTabGroup', {
-        title: inputValue
+        title: $('#input-field').val()
       }, function(response){
         if(response.success) {
-          swal("Nice!", "Your new group, " + inputValue+", was created", "success")
           swal({
             title: "Nice!",
-            text: "Your new group, " + inputValue+", was created!",
-            type: "success",
-            showCancelButton: false,
-//             confirmButtonColor: "#DD6B55",
-            confirmButtonText: "Okay",
-            closeOnConfirm: true
+            text: "Your new group, \"" + tabTitle+"\", was created!",
+            type: "success"
           }, function() {
             location.reload()
           });
