@@ -105,23 +105,6 @@ $("#open_selected_rows").click(function() {
       }
     })
     
-//     if (i >= 1) {
-//       // can replace if statement w/ below once checkbox in place and
-//       // when checkbox list is retrieved
-//    // while (i >= 1){
-//       // if((tabslist[i-1].attr('type') == 'checkbox')&&(tabslist[i-1].checked)){
-   
-//       //is the line necessary?
-//      // $("#addr" + (i - 1)).html(''); 
-      
-//       deleted.push($("#addr"+(i-1)).attr("name"))
-      
-//        //is the line necessary?
-//       //$("#addr"+(i-1)).attr("name", "")
-//       i--;
-      
-    
-//    } 
    
     if(deleted.length > 0) {
       $.post('/deleteTabs', {
@@ -197,6 +180,8 @@ $("#open_selected_rows").click(function() {
 			html: '<p style="padding-bottom: 20px">Enter a name for your new Tab Group: </p> <p><input id="input-field" style="margin: 10px; padding: 5px; font-size: 20px;"></p>',
       showCancelButton: true,
       closeOnConfirm: false,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
       inputPlaceholder: "Write something",
       showLoaderonConfirm: true
     }, function() {
@@ -211,9 +196,9 @@ $("#open_selected_rows").click(function() {
       }, function(response){
         if(response.success) {
           swal({
-            title: "Nice!",
+            title: 'Nice!',
             text: "Your new group, \"" + tabTitle+"\", was created!",
-            type: "success"
+            type: 'success'
           }, function() {
             location.reload()
           });
@@ -228,27 +213,32 @@ $("#open_selected_rows").click(function() {
 
 //Delete Tab Group
 $("#deleteTabGroupButton").click(function () {
-   swal({
-            title: 'Input something',
-            html: '<p><input id="input-field">',
-            showCancelButton: true,
-            closeOnConfirm: false
-        },
-        function() {
-            swal({
-              html:
-                'You entered: <strong>' +
-                $('#input-field').val() +
-                '</strong>'
-            });
+       swal({
+            title: 'Delete Tab Group',
+            html:'<form>'
+            + '<select>' 
+            + ''
+            + '</select>'
+            + '</form>'
+          
         });
       
 });
+
+//Movement of the tabs
 $('#tab_logic').sortable({
   containerSelector: 'table',
   itemPath: '> tbody',
   itemSelector: 'tr',
-  placeholder: '<tr class="placeholder" style="z-index: 999"/>'
+  placeholder: '<tr class="placeholder" style="z-index: 999"/>',
+  onDrop: function (item, container, _super) {
+        var ids = table.find('tr').map(function() {
+            return this.id;
+        }).get();
+    
+        console.log(ids);
+        _super(item, container);
+    }
 });
 
 });
