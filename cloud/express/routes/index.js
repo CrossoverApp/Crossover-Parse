@@ -17,7 +17,7 @@ module.exports.overview = function(req, res) {
 }
 
 module.exports.account = function(req, res) {
-  console.log("OVERVIEW TAB GROUPS:  "+req.tabGroups)
+  console.log("Account TAB GROUPS:  "+req.tabGroups)
   res.renderT('account', {
     template: 'account',
     tabGroups: req.tabGroups,
