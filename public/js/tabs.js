@@ -224,21 +224,12 @@ $("#deleteTabGroupButton").click(function () {
         });
       
 });
-
-//Movement of the tabs
 $('#tab_logic').sortable({
   containerSelector: 'table',
   itemPath: '> tbody',
   itemSelector: 'tr',
   placeholder: '<tr class="placeholder" style="z-index: 999"/>',
-  onDrop: function (item, container, _super) {
-        var ids = table.find('tr').map(function() {
-            return this.id;
-        }).get();
-    
-        console.log(ids);
-        _super(item, container);
-    }
+  
 });
 
 });
