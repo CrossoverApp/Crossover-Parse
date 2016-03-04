@@ -3,20 +3,12 @@ $(document).ready(function() {
   var groupId = href.substr(href.lastIndexOf('/') + 1)
   var i = $('tbody tr').length - 1;
   var url = window.location.href;
-  var onerow = 1;
   
   $("#add_row").click(function() {
-    
-    if(onerow == 1) {
     $('#addr' + i).html("<td>" + (i + 1) + "</td><td><input name='title' type='text' placeholder='Title' class='form-control input-md'  /> </td><td><input  name='url' type='text' placeholder='URL'  class='form-control input-md'></td>");
 
     $('#tab_logic').append('<tr id="addr' + (i + 1) + '" name="new"></tr>');
     i++;
-    onerow = 2
-    }
-    else{
-      alert("Please save current row before adding more tabs")
-    }
   });
 
   $("#open_rows").click(function() {
@@ -113,23 +105,6 @@ $("#open_selected_rows").click(function() {
       }
     })
     
-//     if (i >= 1) {
-//       // can replace if statement w/ below once checkbox in place and
-//       // when checkbox list is retrieved
-//    // while (i >= 1){
-//       // if((tabslist[i-1].attr('type') == 'checkbox')&&(tabslist[i-1].checked)){
-   
-//       //is the line necessary?
-//      // $("#addr" + (i - 1)).html(''); 
-      
-//       deleted.push($("#addr"+(i-1)).attr("name"))
-      
-//        //is the line necessary?
-//       //$("#addr"+(i-1)).attr("name", "")
-//       i--;
-      
-    
-//    } 
    
     if(deleted.length > 0) {
       $.post('/deleteTabs', {
@@ -147,7 +122,7 @@ $("#open_selected_rows").click(function() {
   
   $("#save_rows").click(function() {
     var newTabs = []
-    onerow = 1
+    
     $("tr[name]").each(function() {
       
       if($(this).attr("name") == "new" && $(this).children().length > 0 ) {
@@ -205,6 +180,8 @@ $("#open_selected_rows").click(function() {
 			html: '<p style="padding-bottom: 20px">Enter a name for your new Tab Group: </p> <p><input id="input-field" style="margin: 10px; padding: 5px; font-size: 20px;"></p>',
       showCancelButton: true,
       closeOnConfirm: false,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
       inputPlaceholder: "Write something",
       showLoaderonConfirm: true
     }, function() {
@@ -219,9 +196,9 @@ $("#open_selected_rows").click(function() {
       }, function(response){
         if(response.success) {
           swal({
-            title: "Nice!",
+            title: 'Nice!',
             text: "Your new group, \"" + tabTitle+"\", was created!",
-            type: "success"
+            type: 'success'
           }, function() {
             location.reload()
           });
@@ -236,19 +213,14 @@ $("#open_selected_rows").click(function() {
 
 //Delete Tab Group
 $("#deleteTabGroupButton").click(function () {
-   swal({
-            title: 'Input something',
-            html: '<p><input id="input-field">',
-            showCancelButton: true,
-            closeOnConfirm: false
-        },
-        function() {
-            swal({
-              html:
-                'You entered: <strong>' +
-                $('#input-field').val() +
-                '</strong>'
-            });
+       swal({
+            title: 'Delete Tab Group',
+            html:'<form>'
+            + '<select>' 
+            + ''
+            + '</select>'
+            + '</form>'
+          
         });
       
 });
@@ -256,7 +228,8 @@ $('#tab_logic').sortable({
   containerSelector: 'table',
   itemPath: '> tbody',
   itemSelector: 'tr',
-  placeholder: '<tr class="placeholder" style="z-index: 999"/>'
+  placeholder: '<tr class="placeholder" style="z-index: 999"/>',
+  
 });
 
 });
