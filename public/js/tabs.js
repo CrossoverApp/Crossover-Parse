@@ -3,12 +3,19 @@ $(document).ready(function() {
   var groupId = href.substr(href.lastIndexOf('/') + 1)
   var i = $('tbody tr').length - 1;
   var url = window.location.href;
+  var limit = 1
   
   $("#add_row").click(function() {
+    if(limit == 1){
     $('#addr' + i).html("<td>" + (i + 1) + "</td><td><input name='title' type='text' placeholder='Title' class='form-control input-md'  /> </td><td><input  name='url' type='text' placeholder='URL'  class='form-control input-md'></td>");
 
     $('#tab_logic').append('<tr id="addr' + (i + 1) + '" name="new"></tr>');
     i++;
+    limit = 0
+    }
+    else{
+     alert("Please save current row before adding more tabs");
+    }
   });
 
   $("#open_rows").click(function() {
@@ -163,7 +170,7 @@ $("#open_selected_rows").click(function() {
           console.log(response.error)
         }
       })
-  
+  limit = 1
   })
   
   $("#logout_button").click(function() {
