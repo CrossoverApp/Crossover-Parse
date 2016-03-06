@@ -6,6 +6,40 @@ $(document).ready(function() {
    
    
   
+  
+  
+  
+  $(".form-updateEmail").on("submit", function(event) {
+    event.preventDefault()
+    event.stopPropagation()
+    		
+    if(buttonEnabled) {
+      var emailNew = $("#newest_email").val()
+ 
+     
+      var button = $("#submitEmail")
+						
+     // buttonEnabled = false;
+       emailText("Sending...")
+       button.prop("disabled", true)
+     
+     
+     $.post('/changeEmail', {
+           emailNew: emailNew
+     }, function (response) {
+           //alert("Your Email has been updated!")
+           emailText("Your Email has been updated!")
+       })
+     
+     
+     
+			
+			
+     }
+     
+   })
+  
+  
   $(".form-updatePass").on("submit", function(event) {
     event.preventDefault()
     event.stopPropagation()
@@ -18,7 +52,7 @@ $(document).ready(function() {
      
       var button = $("#submitButton")
 						
-      buttonEnabled = false;
+     // buttonEnabled = false;
       buttonText("Sending...")
 			
 			button.prop("disabled", true)
@@ -59,39 +93,6 @@ $(document).ready(function() {
      
    })
   
-  
-  $(".form-updateEmail").on("submit", function(event) {
-    event.preventDefault()
-    event.stopPropagation()
-    		
-    if(buttonEnabled) {
-      var emailNew = $("#newest_email").val()
- 
-     
-      var button = $("#submitEmail")
-						
-      buttonEnabled = false;
-      buttonText("Sending...")
-     button.prop("disabled", true)
-     
-     
-     $.post('/changeEmail', {
-           emailNew: emailNew
-     }, function (response) {
-          buttonText("Your Email has been updated!")
-       })
-     
-     
-     
-			
-			
-     }
-     
-   })
-  
-  
-  
-  
 	
 	$("#submitButton").on("blur", function(event) {
 		$(this).text("Change Password!")
@@ -101,13 +102,13 @@ $(document).ready(function() {
 		$("#submitButton").text(text)
 	}
   
-$("#submitEmail").on("blur", function(event) {
-		$(this).text("Change Email!")
-	})
-	
-	function buttonText(text) {
-		$("#submitEmail").text(text)
-	}
+ $("#submitEmail").on("blur", function(event) {
+ 		$(this).text("Change Email!")
+ 	})
+ 	
+ 	function emailText(text) {
+ 		$("#submitEmail").text(text)
+ 	}
    
      $("#logout_button").click(function() {
     window.location.href = "/logout"
