@@ -16,12 +16,20 @@
                     <br />
                     <br />
                    
-                    <label>Registered Email</label>
-                    <input type="text" class="form-control" id="txt_name" value=<%=email%>>
+                   
+               <form class="form-updateEmail">
+
+                    <label >Registered Email: <%=email%> </label>
+                   
+                    <input type="hidden" class="form-control" id="email_name" value= <%=email%>>
 
                     <br>
-                
-                    <a id="#" class="btn btn-success">Update Email</a>
+                    <label for="newest_email">Enter New Email</label>
+                    <input type="email" id="newest_email" class="form-control">
+                  
+
+                    <button class="btn btn-lg btn-primary btn-block" id="submitEmail" type="submit">Update Email</button>
+                   </form>
                     <br /><br/>
                 </div>
                 

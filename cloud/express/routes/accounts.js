@@ -79,6 +79,30 @@ module.exports.changePass = function(req, res) {
 
 
 
+
+
+
+module.exports.changeEmail = function(req, res) {
+  req.user.set("username", req.param("emailNew"))
+  req.user.set("email", req.param("emailNew"))
+  
+  req.user.save({
+    success: function() {
+        // send success object back
+        res.successT()
+    }, error: function(error) {
+        res.errorT({
+          message: error.message
+        })
+    }
+})
+  
+
+}
+
+
+
+
 module.exports.newUser = function(req, res) {
   var user = new Parse.User()
   user.set("username", req.param("email"))
