@@ -139,5 +139,3 @@ module.exports.getTabs = function(req, res) {
   })
 
 }
-
-
