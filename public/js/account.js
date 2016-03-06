@@ -11,7 +11,7 @@ $(document).ready(function() {
     event.stopPropagation()
     		
     if(buttonEnabled) {
-      var email = $("#txt_name").val()
+      var email = $("#email_name").val()
       var password = $("#inputPassword").val()
       var passwordNew = $("#newPassword").val()
       var passwordConfirm = $("#confirmPassword").val()
@@ -58,6 +58,40 @@ $(document).ready(function() {
      }
      
    })
+  
+  
+  $(".form-updateEmail").on("submit", function(event) {
+    event.preventDefault()
+    event.stopPropagation()
+    		
+    if(buttonEnabled) {
+      var emailNew = $("#newest_email").val()
+ 
+     
+      var button = $("#submitEmail")
+						
+      buttonEnabled = false;
+      buttonText("Sending...")
+     button.prop("disabled", true)
+     
+     
+     $.post('/changeEmail', {
+           emailNew: emailNew
+     }, function (response) {
+          buttonText("Your Email has been updated!")
+       })
+     
+     
+     
+			
+			
+     }
+     
+   })
+  
+  
+  
+  
 	
 	$("#submitButton").on("blur", function(event) {
 		$(this).text("Change Password!")
@@ -67,22 +101,13 @@ $(document).ready(function() {
 		$("#submitButton").text(text)
 	}
   
-//nelson ~code 
-   
-//   $.post('/login', {
-//     email: email,
-//     password: oldPassword
-// }, function(response) {
-//     if(response.success) {
-//         $.post('/changePassword', {
-//             newPassword: newPassword
-//         }, function (response) {
-//             swal("Your password has been updated")
-//         })
-// 
-//     }
-// })
-//  
+$("#submitEmail").on("blur", function(event) {
+		$(this).text("Change Email!")
+	})
+	
+	function buttonText(text) {
+		$("#submitEmail").text(text)
+	}
    
      $("#logout_button").click(function() {
     window.location.href = "/logout"
