@@ -223,14 +223,24 @@ $("#deleteTabGroupButton").click(function () {
        swal({
             title: 'Delete Tab Group',
             html:'<form>'
-            + '<select>' 
-            + ''
+            + '<select id = "tabGROUP">' 
+            + '<option id="addTabOption" value=""></option>'
             + '</select>'
-            + '</form>'
-          
-        });
-      
+            + '</form>',
+            showCancelButton: true,
+            closeOnConfirm: false,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            showLoaderonConfirm: true
+          },
+           function() {
+            var addTabOption
+            for(i=0; i < tabGroup.length + 1; i++){
+              $('#tabGROUP').append("<option value="+ i +"'>"+ tabGroup +"</option>");
+           }
+          });
 });
+
 $('#tab_logic').sortable({
   containerSelector: 'table',
   itemPath: '> tbody',
