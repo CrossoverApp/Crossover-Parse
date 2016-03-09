@@ -2,7 +2,7 @@
 
 <main class="cd-main-content">
       <nav class="cd-side-nav topmenu">
-        <ul>
+        <ul id="tabGroupList">
           
           <li class="cd-label">Main</li>
           <li class="overview">
@@ -16,7 +16,7 @@
           <%   tabGroups.forEach(function(tabGroup){%>
           
           
-            <li class="notifications">
+            <li class="notifications" id="<%=tabGroup.id%>" name="<%=tabGroup.title%>" >
               <a href=<%="/tab/"+tabGroup.id%>  > <%= tabGroup.title %></a>
             </li>
           
