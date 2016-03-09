@@ -65,14 +65,7 @@ $("#deleteTabGroupButton").click(function () {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             showLoaderonConfirm: true
-          },
-           function() {
-            var addTabOption
-            for(i=0; i < tabGroup.length + 1; i++){
-              $('#tabGROUP').append("<option value="+ i +"'>"+ tabGroup +"</option>");
-           }
           });
-});
   
   
 })
