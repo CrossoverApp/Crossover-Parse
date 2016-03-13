@@ -1,75 +1,80 @@
- <!-- .cd-main-header -->
+<!-- .cd-main-header -->
 
- <html lang="en"><head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+<html lang="en">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../../favicon.ico">
 
-    <link rel="stylesheet" href="/css/reset.css"> <!-- CSS reset -->
-    <link rel="stylesheet" href="/css/style.css"> <!-- Resource style -->
-<!--     <link rel="stylesheet" href="/css/sweetalert.css"> -->
-   <link rel="stylesheet" href="/css/sweetalert2.css">
-    <script src="/js/modernizr.js"></script> <!-- Modernizr -->
-  
-    <!-- Custom Fonts -->
-    <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
 
-    <title>Crossover</title>
+  <link rel="stylesheet" href="/css/reset.css">
+  <!-- CSS reset -->
+  <link rel="stylesheet" href="/css/style.css">
+  <!-- Resource style -->
+  <!--     <link rel="stylesheet" href="/css/sweetalert.css"> -->
+  <link rel="stylesheet" href="/css/sweetalert2.css">
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href= "/css/bootstrapstyle.css" >
+  <script src="/js/modernizr.js"></script>
+  <!-- Modernizr -->
 
-<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+  <!-- Custom Fonts -->
+  <link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <title>Crossover</title>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrapstyle.css">
+
+  <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">-->
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
 
-    <!--Drop and Drag stuff Styling-->
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <!--Drop and Drag stuff Styling-->
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
 
-  </head>
+</head>
 
- <body>
- <header class="cd-main-header">
-      <a href="#0" class="cd-logo" style="text-decoration: none; font-size: 17px; font-family: Montserrat,Helvetica,Arial,sans-serif; color: white; font-weight: 700; text-transform: uppercase;">
-        <i class="fa fa-arrows-alt"></i>  <span style="font-weight: 400">Cross</span>over
-      </a>
+<body>
+  <header class="cd-main-header">
+    <a href="#0" class="cd-logo" style="text-decoration: none; font-size: 17px; font-family: Montserrat,Helvetica,Arial,sans-serif; color: white; font-weight: 700; text-transform: uppercase;">
+      <i class="fa fa-arrows-alt"></i> <span style="font-weight: 400">Cross</span>over
+    </a>
 
- <a href="#0" class="cd-nav-trigger"><span></span></a>
+    <a href="#0" class="cd-nav-trigger"><span></span></a>
 
-      <nav class="cd-nav">
-        <ul class="cd-top-nav">
-          <!-- <li><a href="#0">Tour</a></li>
+    <nav class="cd-nav">
+      <ul class="cd-top-nav">
+        <!-- <li><a href="#0">Tour</a></li>
           <li><a href="#0">Support</a></li> -->
-          <li class="has-children account">
-            <a href="#0">
+        <li class="has-children account">
+          <a href="#0">
             <% if(typeof groupName !== 'undefined' && groupName) {%>
               <img src="../img/cd-avatar.png" alt="avatar">
-            <% } else { %>          
-              <img src="img/cd-avatar.png" alt="avatar">
-            <% } %>
-              Account
-            </a>
+              <% } else { %>
+                <img src="img/cd-avatar.png" alt="avatar">
+                <% } %>
+                  Account
+          </a>
 
-            <ul>
+          <ul>
 
-              <li><a href="/account">My Account</a></li>
-              <li><a id="logout_button">Logout</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </header> 
+            <li><a href="/account">My Account</a></li>
+            <li><a id="logout_button">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>

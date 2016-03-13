@@ -88,6 +88,7 @@ app.post('/newTabs', routes.accounts.auth, routes.tabs.newTabs)
 app.post('/deleteTabs', routes.accounts.auth, routes.tabs.deleteTabs)
 
 app.post('/newTabGroup', routes.accounts.auth, routes.tabGroups.newTabGroup)
+app.post('/deleteTabGroup', routes.accounts.auth, routes.tabGroups.deleteTabGroup)
 
 app.post('/changePass', routes.accounts.auth, routes.accounts.changePass )
 app.post('/changeEmail', routes.accounts.auth, routes.accounts.changeEmail )

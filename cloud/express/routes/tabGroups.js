@@ -115,3 +115,40 @@ module.exports.getTabGroupTabs = function(req, res) {
   }) 
   
 }
+
+
+module.exports.deleteTabGroup = function(req, res) {
+  var groupId = ""
+  groupId = req.param("deleted")
+
+  var tabGroup = new TabGroup()
+
+  tabGroup.id = groupId
+  tabGroup.fetch({
+    success: function() {
+      if (tabGroup.get("canDelete")) {
+        var tabs = tabGroup.get("tabs")
+        var query = new Parse.Query(TabGroup)
+
+        query.containedIn("objectId", tabs).find().then(function(tabs) {
+          return Parse.Promise.when(
+            tabs.map(function(tab) {
+              tab.destroy()
+            })
+          )
+        }).then(function() {
+          tabGroup.destroy()
+        }).then(function() {
+          res.successT()
+        })
+      } else {
+        return false;
+      }
+
+    }, error: function(error) {
+      res.errorT({
+        message: error.message
+      })
+    }
+  })
+}

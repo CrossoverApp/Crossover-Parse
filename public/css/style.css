@@ -699,6 +699,11 @@ Sidebar
   .cd-side-nav .action-btn button {
     margin: 1em 10% 0;
   }
+  
+  .cd-side-nav .delete-btn button{
+    margin: 1em 10% 0;    
+  }
+  
   .cd-side-nav .count {
     height: 8px;
     width: 8px;

@@ -44,7 +44,9 @@ module.exports.user = function(req, res) {
     req.param("email"), req.param("password")
   ).then(function(user) {
     req.session.user = user.id
-    res.successT()
+    res.successT({
+			currentUser: user
+		})
   }, function() {
     res.errorT("Invalid Credentials")
   })
