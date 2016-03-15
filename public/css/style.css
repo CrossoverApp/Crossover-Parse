@@ -21,6 +21,14 @@ body {
 
 }
 
+#index {
+   font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: #3e454c;
+  background: #fff;
+  background-color: #CFD8DC;
+}
+
 body::after {
   clear: both;
   content: "";
